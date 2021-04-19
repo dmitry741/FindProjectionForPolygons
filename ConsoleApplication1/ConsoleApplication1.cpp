@@ -51,7 +51,7 @@ int main()
     points[3] = CPoint3D(0, 2, 0);
     points[4] = CPoint3D(0, 0, 0);
 
-    CPoint3D testPoint = CPoint3D(3, 3, 3);
+    CPoint3D testPoint = CPoint3D(1, 1, 1);
 
     float minDistance = FLT_MAX;
 
@@ -79,7 +79,6 @@ int main()
                 std::cout << "segment " << i + 1 << "\t";
                 std::cout << "parameter " << results[i].param << "\t";
                 std::cout << "point " << results[i].projection.GetX() << " " << results[i].projection.GetY() << " " << results[i].projection.GetZ() << std::endl;
-                std::cout << std::endl;
             }
         }
     }
