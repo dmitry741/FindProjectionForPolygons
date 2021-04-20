@@ -47,10 +47,10 @@ int main()
 
     float minDistance = std::numeric_limits<float>::max();
 
-    for (int i = 0; i < points.size() - 1; ++i)
+    for (size_t i = 0; i < points.size() - 1; ++i)
     {
-        results[i].projection = CGeometryKit::GetProjection(points[i], points[static_cast<long long>(i) + 1], testPoint);
-        results[i].param = CGeometryKit::GetParameterProjection(points[i], points[static_cast<long long>(i) + 1], results[i].projection);
+        results[i].projection = CGeometryKit::GetProjection(points[i], points[i + 1], testPoint);
+        results[i].param = CGeometryKit::GetParameterProjection(points[i], points[i + 1], results[i].projection);
         results[i].distance = CGeometryKit::Euclidean(testPoint, results[i].projection);
 
         if (0 <= results[i].param && results[i].param <= 1)
@@ -64,7 +64,7 @@ int main()
 
     if (minDistance != std::numeric_limits<float>::max())
     {
-        for (int i = 0; i < points.size() - 1; ++i)
+        for (size_t i = 0; i < points.size() - 1; ++i)
         {
             if (0 <= results[i].param && results[i].param <= 1 && abs(results[i].distance - minDistance) < CGeometryKit::GetTolerance())
             {
