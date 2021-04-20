@@ -3,6 +3,9 @@
 
 #include <iostream>
 #include "Geometry.h"
+#include "CArray.h"
+#include <vector>
+#include <fstream>
 
 struct ResultProjection
 {
@@ -13,51 +16,41 @@ struct ResultProjection
 
 int main()
 {
-    //std::cout << "Projection!\n";
+    std::vector<CPoint3D> points;
+    std::ifstream file;
 
-    CPoint3D point1(0, 0, 0);
-    CPoint3D point2(2, 0, 0);
-    CPoint3D tp(1, 5, 2);
+    file.open("testcase1.txt");
 
-    CPoint3D projection = CGeometryKit::GetProjection(point1, point2, tp);
-    float param = CGeometryKit::GetParameterProjection(point1, point2, projection);
-
-    /*0 0 0
-        1 0 0
-        2 1 0
-        3 1 1
-        Точка:
-    2 0.5 0.5*/
-
-
-    /*
-    0 0 0
-    2 0 0
-    2 2 0
-    0 2 0
-    0 0 0
-        Точка:
-    1 1 1
-    */
-
-    const int cCount = 5;
-    CPoint3D points[cCount];
-    ResultProjection results[cCount];
-
-    points[0] = CPoint3D(0, 0, 0);
-    points[1] = CPoint3D(2, 0, 0);
-    points[2] = CPoint3D(2, 2, 0);
-    points[3] = CPoint3D(0, 2, 0);
-    points[4] = CPoint3D(0, 0, 0);
-
-    CPoint3D testPoint = CPoint3D(1, 1, 1);
-
-    float minDistance = FLT_MAX;
-
-    for (int i = 0; i < cCount - 1; ++i)
+    if (!file.is_open())
     {
-        results[i].projection = CGeometryKit::GetProjection(points[i], points[i + 1], testPoint);
-        results[i].param = CGeometryKit::GetParameterProjection(points[i], points[i + 1], results[i].projection);
+        std::cout << "File does not exist" << std::endl;
+        return 1;
+    }
+
+    float x, y, z;
+
+    while (!file.eof())
+    {
+        file >> x;
+        file >> y;
+        file >> z;
+
+        CPoint3D point(x, y, z);
+        points.push_back(point);
+    }
+
+    file.close();
+
+
+    ResultProjection* results = new ResultProjection[points.size() - 1];
+    CPoint3D testPoint = CPoint3D(2, 0.5, 0.5);
+
+    float minDistance = std::numeric_limits<float>::max();
+
+    for (int i = 0; i < points.size() - 1; ++i)
+    {
+        results[i].projection = CGeometryKit::GetProjection(points[i], points[static_cast<long long>(i) + 1], testPoint);
+        results[i].param = CGeometryKit::GetParameterProjection(points[i], points[static_cast<long long>(i) + 1], results[i].projection);
         results[i].distance = CGeometryKit::Euclidean(testPoint, results[i].projection);
 
         if (0 <= results[i].param && results[i].param <= 1)
@@ -69,9 +62,9 @@ int main()
         }
     } 
 
-    if (minDistance != FLT_MAX)
+    if (minDistance != std::numeric_limits<float>::max())
     {
-        for (int i = 0; i < cCount - 1; ++i)
+        for (int i = 0; i < points.size() - 1; ++i)
         {
             if (0 <= results[i].param && results[i].param <= 1 && abs(results[i].distance - minDistance) < CGeometryKit::GetTolerance())
             {
@@ -85,4 +78,6 @@ int main()
     {
         std::cout << "No projections." << std::endl;
     }
+
+    delete[] results;
 }
