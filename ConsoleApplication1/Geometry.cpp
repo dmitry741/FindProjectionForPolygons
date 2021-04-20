@@ -6,10 +6,7 @@
 CVector::CVector(const CPoint3D& point1, const CPoint3D& point2) : 
 	CPoint3D(point2.GetX() - point1.GetX(), point2.GetY() - point1.GetY(), point2.GetZ() - point1.GetZ()) {}
 
-float CVector::Dot(const CVector& a, const CVector& b)
-{
-	return a.GetX() * b.GetX() + a.GetY() * b.GetY() + a.GetZ() * b.GetZ();
-}
+CVector::CVector(const CPoint3D& point) : CPoint3D(point.GetX(), point.GetY(), point.GetZ()) {}
 
 CVector CVector::Cross(const CVector& a, const CVector& b)
 {
@@ -23,13 +20,6 @@ CVector CVector::Cross(const CVector& a, const CVector& b)
 float CVector::GetLenght() const
 {
 	return CGeometryKit::Euclidean(_x, 0, _y, 0, _z, 0);
-}
-
-void CVector::Negate()
-{
-	_x = -_x;
-	_y = -_y;
-	_z = -_z;
 }
 
 // CGeometryKit
@@ -57,19 +47,13 @@ CPoint3D CGeometryKit::GetProjection(const CPoint3D& point1, const CPoint3D& poi
 	assert(direct.GetLenght() > 0 && "Direct vector is equal to zero.");
 
 	CVector normal = CVector::Cross(v1, v2);
-	float height = normal.GetLenght() / direct.GetLenght();
+	auto height = normal.GetLenght() / direct.GetLenght();
 
-	if (height < CGeometryKit::GetTolerance())
+	if (height < GetTolerance())
 		return testPoint;
 
 	CVector vectorAlongHeight = CVector::Cross(direct, normal);
-
-	if (CVector::Dot(vectorAlongHeight, v1) < 0)
-	{
-		vectorAlongHeight.Negate();
-	}
-
-	CVector testVector(testPoint.GetX(), testPoint.GetY(), testPoint.GetZ());
+	CVector testVector(testPoint);
 	CVector v = testVector + height / vectorAlongHeight.GetLenght() * vectorAlongHeight;
 
 	return CPoint3D(v.GetX(), v.GetY(), v.GetZ());

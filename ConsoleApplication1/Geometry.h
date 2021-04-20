@@ -1,16 +1,7 @@
 #pragma once
 #include <cassert>
 
-class IPoint3D
-{
-public:
-
-	virtual float GetX() const = 0;
-	virtual float GetY() const = 0;
-	virtual float GetZ() const = 0;
-};
-
-class CPoint3D : public IPoint3D
+class CPoint3D
 {
 protected:
 
@@ -30,12 +21,10 @@ class CVector : public CPoint3D
 public: 
 	CVector(float X, float Y, float Z) : CPoint3D(X, Y, Z) {};
 	CVector(const CPoint3D& point1, const CPoint3D& point2);
+	CVector(const CPoint3D& point);
 
-	static float Dot(const CVector& a, const CVector& b);
 	static CVector Cross(const CVector& a, const CVector& b);
-
 	float GetLenght() const;
-	void Negate();
 
 	friend CVector operator + (const CVector& a, const CVector& b)
 	{

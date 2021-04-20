@@ -145,7 +145,6 @@
   <ItemGroup>
     <ClInclude Include="CTestCase.h" />
     <ClInclude Include="Geometry.h" />
-    <ClInclude Include="InterfaceResiolver.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -3,25 +3,24 @@
 
 #include <iostream>
 #include "Geometry.h"
-#include "InterfaceResiolver.h"
 
 struct ResultProjection
 {
     CPoint3D projection;
-    float distance;
-    float param;
+    float distance = 0;
+    float param = 0;
 };
 
 int main()
 {
     //std::cout << "Projection!\n";
 
-   /* CPoint3D point1(0, 0, 0);
+    CPoint3D point1(0, 0, 0);
     CPoint3D point2(2, 0, 0);
-    CPoint3D testPoint(2, 0, 0);
+    CPoint3D tp(1, 5, 2);
 
-    CPoint3D projection = CGeometryKit::GetProjection(point1, point2, testPoint);
-    float param = CGeometryKit::GetParameterProjection(point1, point2, projection);*/
+    CPoint3D projection = CGeometryKit::GetProjection(point1, point2, tp);
+    float param = CGeometryKit::GetParameterProjection(point1, point2, projection);
 
     /*0 0 0
         1 0 0
