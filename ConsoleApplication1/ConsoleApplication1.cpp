@@ -75,8 +75,8 @@ int main()
         {
             if (0 <= results[i].param && results[i].param <= 1 && abs(results[i].distance - minDistance) < CGeometryKit::GetTolerance())
             {
-                std::cout << "segment " << i + 1 << "\t";
-                std::cout << "parameter " << results[i].param << "\t";
+                std::cout << "segment " << i + 1 << " ";
+                std::cout << "parameter " << results[i].param << " ";
                 std::cout << "point " << results[i].projection.GetX() << " " << results[i].projection.GetY() << " " << results[i].projection.GetZ() << std::endl;
             }
         }
