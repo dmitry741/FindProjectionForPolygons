@@ -8,17 +8,19 @@
 
 struct ResultProjection
 {
-    CPoint3D projection;
+    CPoint projection;
     float distance = 0;
     float param = 0;
 };
 
 int main()
 {
-    std::vector<CPoint3D> points;
+    std::vector<CPoint> points;
     std::ifstream file;
 
+    // open the file with test case
     file.open("testcase1.txt");
+    //file.open("testcase2.txt");
 
     if (!file.is_open())
     {
@@ -34,12 +36,13 @@ int main()
         file >> y;
         file >> z;
 
-        CPoint3D point(x, y, z);
+        CPoint point(x, y, z);
         points.push_back(point);
     }
 
     file.close();
 
+    // get the test point from console
     std::cout << "Enter the coordinates of the test point" << std::endl;
     std::cout << "X: ";
     std::cin >> x;
@@ -50,9 +53,10 @@ int main()
     std::cout << "Z: ";
     std::cin >> z;
 
-    CPoint3D testPoint = CPoint3D(x, y, z);
+    CPoint testPoint = CPoint(x, y, z);
 
     ResultProjection* results = new ResultProjection[points.size() - 1];
+    assert(results && "Something had gone wrong.");
     float minDistance = std::numeric_limits<float>::max();
 
     for (size_t i = 0; i < points.size() - 1; ++i)

@@ -1,13 +1,21 @@
+/* file: Geometry.cpp */
+
+/*
+//++
+//  Implementation of CPoint3D, Vector, GeometryKit classes.
+//--
+*/
+
 #include "Geometry.h"
 #include <math.h>
 
 // CVector
 
-CVector::CVector(const CPoint3D& point1, const CPoint3D& point2) : 
-	CPoint3D(point2.GetX() - point1.GetX(), point2.GetY() - point1.GetY(), point2.GetZ() - point1.GetZ()) {}
+CVector::CVector(const CPoint& point1, const CPoint& point2) : 
+	CPoint(point2.GetX() - point1.GetX(), point2.GetY() - point1.GetY(), point2.GetZ() - point1.GetZ()) {}
 
-CVector::CVector(const CPoint3D& point) : 
-	CPoint3D(point.GetX(), point.GetY(), point.GetZ()) {}
+CVector::CVector(const CPoint& point) : 
+	CPoint(point.GetX(), point.GetY(), point.GetZ()) {}
 
 CVector CVector::Cross(const CVector& a, const CVector& b)
 {
@@ -34,12 +42,12 @@ float CGeometryKit::Euclidean(float X1, float Y1, float Z1, float X2, float Y2, 
 	return static_cast<float>(sqrt(X * X + Y * Y + Z * Z));
 }
 
-float CGeometryKit::Euclidean(const CPoint3D& point1, const CPoint3D& point2)
+float CGeometryKit::Euclidean(const CPoint& point1, const CPoint& point2)
 {
 	return Euclidean(point1.GetX(), point1.GetY(), point1.GetZ(), point2.GetX(), point2.GetY(), point2.GetZ());
 }
 
-CPoint3D CGeometryKit::GetProjection(const CPoint3D& point1, const CPoint3D& point2, const CPoint3D& testPoint)
+CPoint CGeometryKit::GetProjection(const CPoint& point1, const CPoint& point2, const CPoint& testPoint)
 {
 	CVector v1(testPoint, point1);
 	CVector v2(testPoint, point2);
@@ -59,7 +67,7 @@ CPoint3D CGeometryKit::GetProjection(const CPoint3D& point1, const CPoint3D& poi
 	return testVector + height / vectorAlongHeight.GetLenght() * vectorAlongHeight;
 }
 
-float CGeometryKit::GetParameterProjection(const CPoint3D& point1, const CPoint3D& point2, const CPoint3D& testPoint)
+float CGeometryKit::GetParameterProjection(const CPoint& point1, const CPoint& point2, const CPoint& testPoint)
 {
 	CVector v(point1, point2);
 	auto lenght = v.GetLenght();
