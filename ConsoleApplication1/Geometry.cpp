@@ -6,7 +6,8 @@
 CVector::CVector(const CPoint3D& point1, const CPoint3D& point2) : 
 	CPoint3D(point2.GetX() - point1.GetX(), point2.GetY() - point1.GetY(), point2.GetZ() - point1.GetZ()) {}
 
-CVector::CVector(const CPoint3D& point) : CPoint3D(point.GetX(), point.GetY(), point.GetZ()) {}
+CVector::CVector(const CPoint3D& point) : 
+	CPoint3D(point.GetX(), point.GetY(), point.GetZ()) {}
 
 CVector CVector::Cross(const CVector& a, const CVector& b)
 {

@@ -41,13 +41,13 @@ int main()
     file.close();
 
     std::cout << "Enter the coordinates of the test point" << std::endl;
-    std::cout << "X: " << std::endl;
+    std::cout << "X: ";
     std::cin >> x;
 
-    std::cout << "Y: " << std::endl;
+    std::cout << "Y: ";
     std::cin >> y;
 
-    std::cout << "Z: " << std::endl;
+    std::cout << "Z: ";
     std::cin >> z;
 
     CPoint3D testPoint = CPoint3D(x, y, z);
