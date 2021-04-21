@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include "Geometry.h"
-#include "CArray.h"
 #include <vector>
 #include <fstream>
 
@@ -41,10 +40,19 @@ int main()
 
     file.close();
 
+    std::cout << "Enter the coordinates of the test point" << std::endl;
+    std::cout << "X: " << std::endl;
+    std::cin >> x;
+
+    std::cout << "Y: " << std::endl;
+    std::cin >> y;
+
+    std::cout << "Z: " << std::endl;
+    std::cin >> z;
+
+    CPoint3D testPoint = CPoint3D(x, y, z);
 
     ResultProjection* results = new ResultProjection[points.size() - 1];
-    CPoint3D testPoint = CPoint3D(2, 0.5, 0.5);
-
     float minDistance = std::numeric_limits<float>::max();
 
     for (size_t i = 0; i < points.size() - 1; ++i)

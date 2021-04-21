@@ -54,9 +54,8 @@ CPoint3D CGeometryKit::GetProjection(const CPoint3D& point1, const CPoint3D& poi
 
 	CVector vectorAlongHeight = CVector::Cross(direct, normal);
 	CVector testVector(testPoint);
-	CVector v = testVector + height / vectorAlongHeight.GetLenght() * vectorAlongHeight;
 
-	return CPoint3D(v.GetX(), v.GetY(), v.GetZ());
+	return testVector + height / vectorAlongHeight.GetLenght() * vectorAlongHeight;
 }
 
 float CGeometryKit::GetParameterProjection(const CPoint3D& point1, const CPoint3D& point2, const CPoint3D& testPoint)

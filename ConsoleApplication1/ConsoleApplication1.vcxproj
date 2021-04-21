@@ -139,13 +139,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="CArray.cpp" />
     <ClCompile Include="ConsoleApplication1.cpp" />
     <ClCompile Include="Geometry.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CArray.h" />
-    <ClInclude Include="CTestCase.h" />
     <ClInclude Include="Geometry.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
