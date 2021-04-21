@@ -1,10 +1,6 @@
 /* file: Geometry.cpp */
 
-/*
-//++
 //  Implementation of CPoint3D, Vector, GeometryKit classes.
-//--
-*/
 
 #include "Geometry.h"
 #include <math.h>
