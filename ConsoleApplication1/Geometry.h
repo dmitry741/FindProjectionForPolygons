@@ -90,16 +90,34 @@ public:
 	/// <returns>CVector instance that is product of two vectors.</returns>
 	static CVector Cross(const CVector& a, const CVector& b);	
 
+	/// <summary>
+	/// Returns the sum of two vectors.
+	/// </summary>
+	/// <param name="a">The first vector.</param>
+	/// <param name="b">The second vector.</param>
+	/// <returns>The vector that is the sum of two vectors.</returns>
 	friend CVector operator + (const CVector& a, const CVector& b)
 	{
 		return CVector(a.GetX() + b.GetX(), a.GetY() + b.GetY(), a.GetZ() + b.GetZ());
 	}
 
+	/// <summary>
+	/// Returns the difference of two vectors.
+	/// </summary>
+	/// <param name="a">The first vector.</param>
+	/// <param name="b">The second vector.</param>
+	/// <returns>The vector that is the difference of two vectors.</returns>
 	friend CVector operator - (const CVector& a, const CVector& b)
 	{
 		return CVector(a.GetX() - b.GetX(), a.GetY() - b.GetY(), a.GetZ() - b.GetZ());
 	}
 	
+	/// <summary>
+	/// Returns the vector multiplied by the number.
+	/// </summary>
+	/// <param name="k">The number.</param>
+	/// <param name="v">The vector.</param>
+	/// <returns>The vector multiplied by the number.</returns>
 	friend CVector operator * (float k, const CVector& v)
 	{
 		return CVector(k * v.GetX(), k * v.GetY(), k * v.GetZ());
