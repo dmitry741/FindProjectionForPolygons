@@ -76,7 +76,18 @@ public:
 	/// <returns>CVector instance.</returns>
 	CVector(const CPoint& point);
 
+	/// <summary>
+	/// Reurns the lenght of vector.
+	/// </summary>
+	/// <returns>The lenght of vector.</returns>
 	float GetLenght() const;
+
+	/// <summary>
+	/// Calculates the vector product of two vectors.
+	/// </summary>
+	/// <param name="a">The first vector.</param>
+	/// <param name="b">The second vector.</param>
+	/// <returns>CVector instance that is product of two vectors.</returns>
 	static CVector Cross(const CVector& a, const CVector& b);	
 
 	friend CVector operator + (const CVector& a, const CVector& b)
