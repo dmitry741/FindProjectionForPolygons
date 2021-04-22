@@ -53,7 +53,7 @@ int main()
     std::cout << "Z: ";
     std::cin >> z;
 
-    CPoint testPoint = CPoint(x, y, z);
+    CPoint testPoint(x, y, z);
 
     ResultProjection* results = new ResultProjection[points.size() - 1];
     assert(results && "Something had gone wrong.");

@@ -52,8 +52,28 @@ public:
 class CVector : public CPoint
 {
 public: 
+	/// <summary>
+	/// Creates CVector instance with provided coodinates.
+	/// </summary>
+	/// <param name="X">X coodinate.</param>
+	/// <param name="Y">Y coodinate.</param>
+	/// <param name="Z">Z coodinate.</param>
+	/// <returns>CVector instance.</returns>
 	CVector(float X, float Y, float Z) : CPoint(X, Y, Z) {};
+
+	/// <summary>
+	/// Creates CVector instance by provided two points.
+	/// </summary>
+	/// <param name="point1">The first point (begin).</param>
+	/// <param name="point2">The second point (end).</param>
+	/// <returns>CVector instance.</returns>
 	CVector(const CPoint& point1, const CPoint& point2);
+
+	/// <summary>
+	/// Creates CVector instance by provided CPoint object.
+	/// </summary>
+	/// <param name="point">CPoint object.</param>
+	/// <returns>CVector instance.</returns>
 	CVector(const CPoint& point);
 
 	float GetLenght() const;
