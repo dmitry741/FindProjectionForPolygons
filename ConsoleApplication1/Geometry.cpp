@@ -66,9 +66,8 @@ CPoint CGeometryKit::GetProjection(const CPoint& point1, const CPoint& point2, c
 float CGeometryKit::GetParameterProjection(const CPoint& point1, const CPoint& point2, const CPoint& testPoint)
 {
 	CVector v(point1, point2);
-	auto lenght = v.GetLenght();
 
-	assert(lenght > 0 && "The lenght of vector must be more than zero.");
+	assert(v.GetLenght() > 0 && "The lenght of vector must be more than zero.");
 
 	float param;
 
