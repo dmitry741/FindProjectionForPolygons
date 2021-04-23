@@ -49,7 +49,7 @@ CPoint CGeometryKit::GetProjection(const CPoint& point1, const CPoint& point2, c
 	CVector v2(testPoint, point2);
 	CVector direct = v2 - v1;
 
-	assert(direct.GetLenght() > 0 && "Direct vector is equal to zero.");
+	assert(direct.GetLenght() > 0 && "Direct vector is equal to zero-vector.");
 
 	CVector normal = CVector::Cross(v1, v2);
 	auto height = normal.GetLenght() / direct.GetLenght();

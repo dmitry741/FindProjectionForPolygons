@@ -77,9 +77,9 @@ public:
 	CVector(const CPoint& point);
 
 	/// <summary>
-	/// Reurns the lenght of vector.
+	/// Returns the lenght of vector.
 	/// </summary>
-	/// <returns>The lenght of vector.</returns>
+	/// <returns>Float value that is the lenght of vector.</returns>
 	float GetLenght() const;
 
 	/// <summary>
@@ -125,7 +125,7 @@ public:
 };
 
 /// <summary>
-/// Class that provides methods to search projection of point on segments.
+/// Class that provides methods to search projection of point on segment.
 /// </summary>
 class CGeometryKit
 {
