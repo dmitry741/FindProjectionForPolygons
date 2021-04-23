@@ -13,7 +13,7 @@ protected:
 
 public:
 	/// <summary>
-	/// Creates CPoint instance with provided coodinates.
+	/// Creates CPoint instance with provided coordinates.
 	/// </summary>
 	/// <param name="X">X coodinate.</param>
 	/// <param name="Y">Y coodinate.</param>
