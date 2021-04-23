@@ -53,7 +53,7 @@ class CVector : public CPoint
 {
 public: 
 	/// <summary>
-	/// Creates CVector instance with provided coodinates.
+	/// Creates CVector instance with provided coordinates.
 	/// </summary>
 	/// <param name="X">X coodinate.</param>
 	/// <param name="Y">Y coodinate.</param>
@@ -77,7 +77,7 @@ public:
 	CVector(const CPoint& point);
 
 	/// <summary>
-	/// Returns the lenght of vector.
+	/// Returns the lenght of the vector.
 	/// </summary>
 	/// <returns>Float value that is the lenght of vector.</returns>
 	float GetLenght() const;
