@@ -130,9 +130,40 @@ public:
 class CGeometryKit
 {
 public:
+
+	/// <summary>
+	/// Returns the level of tolerance.
+	/// </summary>
+	/// <returns>The level of tolerance.</returns>
 	static float GetTolerance() { return 0.001f; };
+
+	/// <summary>
+	/// Returns euclidian distance between two points defined by their coordinates.
+	/// </summary>
+	/// <param name="X1">X ccoordinate of the first point.</param>
+	/// <param name="Y1">Y ccoordinate of the first point.</param>
+	/// <param name="Z1">Z ccoordinate of the first point.</param>
+	/// <param name="X2">X ccoordinate of the second point.</param>
+	/// <param name="Y2">Y ccoordinate of the second point.</param>
+	/// <param name="Z2">Z ccoordinate of the second point.</param>
+	/// <returns>Euclidian distance between two points.</returns>
 	static float Euclidean(float X1, float Y1, float Z1, float X2, float Y2, float Z2);
+
+	/// <summary>
+	/// Returns euclidian distance between two points.
+	/// </summary>
+	/// <param name="point1">The first point.</param>
+	/// <param name="point2">The second point.</param>
+	/// <returns>Euclidian distance between two points.</returns>
 	static float Euclidean(const CPoint& point1, const CPoint& point2);
+
+	/// <summary>
+	/// Returns the point that is the projection of test point on the segment defined by two points.
+	/// </summary>
+	/// <param name="point1">The frist point of segment.</param>
+	/// <param name="point2">The second point of segment.</param>
+	/// <param name="testPoint">The test point.</param>
+	/// <returns>CPoint instance that is projection of test point on the segment.</returns>
 	static CPoint GetProjection(const CPoint& point1, const CPoint& point2, const CPoint& testPoint);
 	static float GetParameterProjection(const CPoint& point1, const CPoint& point2, const CPoint& testPoint);
 };

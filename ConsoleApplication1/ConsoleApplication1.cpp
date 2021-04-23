@@ -1,6 +1,3 @@
-// ConsoleApplication1.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
 #include "Geometry.h"
 #include <vector>
@@ -26,7 +23,10 @@ int main()
     {
         std::cout << "File does not exist" << std::endl;
         return 1;
-    }
+    }    
+
+    std::cout << "Polygon" << std::endl;
+    std::cout << std::endl;
 
     float x, y, z;
 
@@ -36,6 +36,8 @@ int main()
         file >> y;
         file >> z;
 
+        std::cout << x << " " << y << " " << z << std::endl;
+
         CPoint point(x, y, z);
         points.push_back(point);
     }
@@ -43,6 +45,7 @@ int main()
     file.close();
 
     // get the test point from console
+    std::cout << std::endl;
     std::cout << "Enter the coordinates of the test point" << std::endl;
     std::cout << "X: ";
     std::cin >> x;
