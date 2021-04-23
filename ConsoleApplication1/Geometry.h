@@ -30,19 +30,19 @@ public:
 	/// <summary>
 	/// Returns the X coordinate of the point.
 	/// </summary>
-	/// <returns>X coordinate of the point.</returns>
+	/// <returns>Float value that is X coordinate of the point.</returns>
 	float GetX() const { return _x; }
 
 	/// <summary>
 	/// Returns the Y coordinate of the point.
 	/// </summary>
-	/// <returns>Y coordinate of the point.</returns>
+	/// <returns>Float value that is Y coordinate of the point.</returns>
 	float GetY() const { return _y; }
 
 	/// <summary>
 	/// Returns the Z coordinate of the point.
 	/// </summary>
-	/// <returns>Z coordinate of the point.</returns>
+	/// <returns>Float value that is Z coordinate of the point.</returns>
 	float GetZ() const { return _z; }
 };
 
@@ -134,7 +134,7 @@ public:
 	/// <summary>
 	/// Returns the level of tolerance.
 	/// </summary>
-	/// <returns>The level of tolerance.</returns>
+	/// <returns>Float value that is the level of tolerance.</returns>
 	static float GetTolerance() { return 0.001f; };
 
 	/// <summary>
@@ -146,7 +146,7 @@ public:
 	/// <param name="X2">X ccoordinate of the second point.</param>
 	/// <param name="Y2">Y ccoordinate of the second point.</param>
 	/// <param name="Z2">Z ccoordinate of the second point.</param>
-	/// <returns>Euclidian distance between two points.</returns>
+	/// <returns>Float value that is the euclidian distance between two points.</returns>
 	static float Euclidean(float X1, float Y1, float Z1, float X2, float Y2, float Z2);
 
 	/// <summary>
@@ -154,7 +154,7 @@ public:
 	/// </summary>
 	/// <param name="point1">The first point.</param>
 	/// <param name="point2">The second point.</param>
-	/// <returns>Euclidian distance between two points.</returns>
+	/// <returns>Float value that is the euclidian distance between two points.</returns>
 	static float Euclidean(const CPoint& point1, const CPoint& point2);
 
 	/// <summary>
@@ -165,5 +165,13 @@ public:
 	/// <param name="testPoint">The test point.</param>
 	/// <returns>CPoint instance that is projection of test point on the segment.</returns>
 	static CPoint GetProjection(const CPoint& point1, const CPoint& point2, const CPoint& testPoint);
+
+	/// <summary>
+	/// Returns the parameter of projection of test point on the segment defined by two points.
+	/// </summary>
+	/// <param name="point1">The frist point of segment.</param>
+	/// <param name="point2">The second point of segment.</param>
+	/// <param name="testPoint">The test point.</param>
+	/// <returns>Float value that is the parameter of projection of test point on the segment.</returns>
 	static float GetParameterProjection(const CPoint& point1, const CPoint& point2, const CPoint& testPoint);
 };
