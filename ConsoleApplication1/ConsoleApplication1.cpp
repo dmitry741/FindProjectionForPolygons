@@ -16,8 +16,8 @@ int main()
     std::ifstream file;
 
     // open the file with test case
-    file.open("testcase1.txt");
-    //file.open("testcase2.txt");
+    //file.open("testcase1.txt");
+    file.open("testcase2.txt");
 
     if (!file.is_open())
     {

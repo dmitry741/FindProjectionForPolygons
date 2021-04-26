@@ -24,7 +24,7 @@ CVector CVector::Cross(const CVector& a, const CVector& b)
 
 float CVector::GetLenght() const
 {
-	return CGeometryKit::Euclidean(_x, 0, _y, 0, _z, 0);
+	return CGeometryKit::Euclidean(_x, _y, _z, 0, 0, 0);
 }
 
 // CGeometryKit
